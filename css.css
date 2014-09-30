@@ -1,0 +1,25 @@
+body {
+    background: url('http://blog.queensland.com/files/2012/11/Summer.jpg');
+    background-repeat:repeat-y;
+    background-position:center center;
+    background-attachment:scroll;
+    background-size:100% 100%;
+}
+.ui-page {
+    background: transparent;
+}
+.ui-content{
+    background: transparent;
+}
+#numefirma{
+	font: italic bold 30px/20px Georgia, serif;
+	color:  #FF8000;
+}
+
+#Contacttable{
+	font-family: "Times New Roman", sans-serif;
+	font-size: 20px;
+	color: #black;
+	position: left;
+}
+
