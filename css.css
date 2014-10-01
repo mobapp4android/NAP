@@ -1,8 +1,8 @@
 body {
-    background: url('http://blog.queensland.com/files/2012/11/Summer.jpg');
-    background-repeat:repeat-y;
+    background-image: url("summer1.jpg");
+    background-repeat:no-repeat;
     background-position:center center;
-    background-attachment:scroll;
+    background-attachment:fixed;
     background-size:100% 100%;
 }
 .ui-page {
@@ -18,8 +18,8 @@ body {
 
 #Contacttable{
 	font-family: "Times New Roman", sans-serif;
-	font-size: 20px;
-	color: #black;
+	font-size: 1.4em;
+	color: #FF3300 ;
 	position: left;
 }
 
