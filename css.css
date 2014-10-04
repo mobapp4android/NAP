@@ -23,3 +23,11 @@ body {
 	position: left;
 }
 
+.paragrafimbunatatit{
+
+	font: Tahoma bold 20px/20 px Tahoma, serif;
+	color:  #0066FF;
+	text-align:center;
+	vertical-align:"bottom";
+	
+}
