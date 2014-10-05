@@ -6,6 +6,46 @@
 	<link rel="stylesheet" type="text/cssx" href="css.css"/>
 	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+	
+<script>
+function ajaxFunction(){
+ //var ajaxRequest;  // Variabila Ajax  
+	
+ try{
+    
+   ajaxRequest = new XMLHttpRequest();
+ }catch (e){
+    
+   try{
+      ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
+   }catch (e) {
+      try{
+         ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
+      }catch (e){
+         // Daca ceva e in neregula cu vreun browser 
+		return false;
+      }
+   }
+ }
+ // Se creaza functia care va primi datele 
+ // trimise de server si va updata divul
+ // in care noi vrem sa facem afisarea datelor din DB
+ ajaxRequest.onreadystatechange = function(){
+   if(ajaxRequest.readyState == 4){
+      var ajaxDisplay = document.getElementById('ajaxDiv');
+      ajaxDisplay.innerHTML = ajaxRequest.responseText;
+   }
+ }
+ // Aici culegem datele si le trimit catre scriptul php de pe server
+ var transport = 'Autocar';
+ //var wpm = document.getElementById('wpm').value;
+ //var sex = document.getElementById('sex').value;
+ var queryString = "?transport=" + transport /*+"&wpm=" + wpm + "&sex=" + sex*/;
+ ajaxRequest.open("GET", "http://192.168.1.134/interogator.php" + queryString, true);
+ ajaxRequest.send(null); 
+} 
+</script>
+
  
  </head> 
  <body>
@@ -108,28 +148,28 @@
 			
 			<th> </th>
 			<th> </th>      
-			<th> </th>		  
+			 	  
         </tr>
      </thead>
 	<tbody>
 	
         <tr>
-          <td><a href="#CircuiteAutocar" class="ui-btn  ui-corner-all ui-shadow " data-transition="flow"> Autocar  </a></td>
+          <td><input type='button' onclick='ajaxFunction()' value='Autocar'/></td>
+          <td><input type='button' onclick='ajaxFunction()' value='Avion'/></td>
+		</tr>
+		<tr>
           <td> </td>
           <td> </td>
-		  <td> </td>
-        </tr>
-        <tr>
-		  <td><a href="#CircuiteAvion" class="ui-btn  ui-corner-all ui-shadow " data-transition="flow"> Avion </a></td>
-          <td> </td>
-          <td> </td>
-        </tr>
-        <tr>
+		</tr>
+        
 	</tbody>	
 	</table>
+	
+	<div id='ajaxDiv'>In divul asta o sa apara interogarea de la BD pentru pagina de circuite cu avion si autocar </div>	
+	
 </div>
 
-<div data-role="page" id="CircuiteAutocar" >
+<!-- <div data-role="page" id="CircuiteAutocar" >
 	<div data-role="header">
 		<div data-role="navbar">
 			<ul>
@@ -151,9 +191,9 @@
       <a href="#" class="ui-btn">Germania </a>
     </div>
 	
-</div>	
+</div>	 -->
 
-<div data-role="page" id="CircuiteAvion" >
+<!-- <div data-role="page" id="CircuiteAvion" >
 	<div data-role="header">
 		<div data-role="navbar">
 			<ul>
@@ -168,7 +208,7 @@
 	<div id="numefirma"> 
 	<p style="text-align:center"> Circuite avion </p>
 	</div>
-</div>	
+</div>	 -->
 
 <div data-role="page" id="Exotice" >
 	<div data-role="header">
