@@ -280,8 +280,11 @@
 	<div id="numefirma"> 
 	<p style="text-align:center"> 	Statiuni Balneo - Montane </p>
 	</div>
+	
+	<script src="http://192.168.1.134/baleno.php"></script>
+	
 </div>
-</div> 
+ 
 
 <div data-role="page" id="romaniaDelta" >
 	<div data-role="header">
@@ -299,7 +302,7 @@
 	<p style="text-align:center"> Delta Dunarii </p>
 	</div>
 </div>
-</div> 
+ 
 
 <div data-role="page" id="romaniaMaramures" >
 	<div data-role="header">
@@ -406,11 +409,11 @@
 	<table data-role="table" class="ui-responsive" >
 	<thead><tr><th> </th><th> </th>	</thead>
 		<tbody>
-		<tr> <td> <p class="paragrafimbunatatit"> Numele  : </p> </td>   <td> <input type="text"name="Numele"></td></tr> 
+		<tr> <td> <p class="paragrafimbunatatit"> Numele  :</p> </td>   <td> <input type="text"name="Numele"></td></tr> 
 		<tr> <td> <p class="paragrafimbunatatit"> Prenumele :</p>  </td>  <td><input type="text" name="Prenumele"></td></tr>  
 		<tr> <td> <p class="paragrafimbunatatit"> Mail   :</p>  </td> <td> <input type="text" name="Mail" > </td></tr>  
 		<tr> <td> <p class="paragrafimbunatatit"> Data nasterii :</p> </td>    
-		<td><select name="Anul">
+			<td><select name="Anul">
 			<option value=Alege>Alege anul </option>
 			<option value=1914>1914</option>
 			<option value=1915>1915</option>
@@ -513,19 +516,12 @@
 			<option value=2012>2012</option>
 			<option value=2013>2013</option>
 			<option value=2014>2014</option>
-			<option value=2015>2015</option>
-			<option value=2016>2016</option>
-			<option value=2017>2017</option>
-			<option value=2018>2018</option>
-			<option value=2019>2019</option>
-			<option value=2020>2020</option>
-			<option value=2021>2021</option>
-			<option value=2022>2022</option>
+
 
 			</select></td>   </tr>
-		<tr> <td></td> 
-		<td><select name="Luna"> 
-			<option>  <p class="paragrafimbunatatit"> Alege luna ! </p> </option>
+			<tr> <td></td> 
+			<td><select name="Luna"> 
+			<option>  <p class="paragrafimbunatatit"> Alege luna   </p> </option>
 			<option value=Ianuarie> Ianuarie </option> 
 			<option value=Februarie> Februarie </option> 
 			<option value=Martie> Martie </option> 
@@ -539,9 +535,9 @@
 			<option value=Noiembrie > Noiembrie </option> 
 			<option value=Decembrie> Decembrie </option> 
 			</select></td> </tr>
-		<tr> <td> </td>	
-		<td><select name="Ziua"> 
-			<option ><p class="paragrafimbunatatit"> Alege ziua : </p> </option>
+			<tr> <td> </td>	
+			<td><select name="Ziua"> 
+			<option ><p class="paragrafimbunatatit"> Alege ziua </p> </option>
 			<option value=1>1</option>
 			<option value=2>2</option>
 			<option value=3>3</option>
@@ -577,9 +573,10 @@
 			
 			</select></td> </tr>
 		 
-		<tr> <td> <p class="paragrafimbunatatit"> Sexul : </p>  </td> <td> <input type="radio" name="Sex" value="Male"> Male </td> <td> <input type="radio" name="Sex" value="Female">Female </td> </tr> 
-		<tr> <td> <p class="paragrafimbunatatit"> Sugestia : </p>  </td> <td> <input type="text" name="Sugestia"> </textarea> </td> </tr>
-		<tr> <td> </td> <td> <input type="submit" value="Submit"></td> </tr> 
+		<tr> <td> <p class="paragrafimbunatatit"> Sexul : </p>  </td> <td> <input type="radio" name="Sex" value="Male" checked="checked" > Male <input type="radio" name="Sex" value="Female">Female </td> </tr> 
+		<tr> <td> <p class="paragrafimbunatatit"> Sugestia : </p>  </td> <td> <input type="text" name="Sugestia" value="Sugestia"> </textarea> </td> </tr>
+		<tr> <td>  </td>  <td> <input type="submit" value="Submit"></td> </tr> 
+		<tr> <td>  </td>  <td> <input type="reset" value="Sterge"></td> </tr> 
 		
 		</tbody>
 	</table>
