@@ -36,11 +36,11 @@ function ajaxFunction(){
       ajaxDisplay.innerHTML = ajaxRequest.responseText;
    }
  }
- // Aici culegem datele si le trimit catre scriptul php de pe server
- var transport = 'Autocar';
+ // Aici culegem datele dupa care facem selectia si le trimit catre scriptul php de pe server
+ var transport = document.getElementById('transport').value;
  //var wpm = document.getElementById('wpm').value;
  //var sex = document.getElementById('sex').value;
- var queryString = "?transport=" + transport /*+"&wpm=" + wpm + "&sex=" + sex*/;
+ var queryString = "?"+'transport'+"=" + transport; /*+"&wpm=" + wpm + "&sex=" + sex;*/
  ajaxRequest.open("GET", "http://192.168.1.134/interogator.php" + queryString, true);
  ajaxRequest.send(null); 
 } 
@@ -142,30 +142,14 @@ function ajaxFunction(){
 	<div id="numefirma"> 
     <p style="text-align:center"> CIRCUITE </p>  
 	</div>	
-	<table data-role="table" class="ui-responsive" >
-	<thead>
-        <tr>
-			
-			<th> </th>
-			<th> </th>      
-			 	  
-        </tr>
-     </thead>
-	<tbody>
+	<form name='formCircuite'>
 	
-        <tr>
-          <td><input type='button' onclick='ajaxFunction()' value='Autocar'/></td>
-          <td><input type='button' onclick='ajaxFunction()' value='Avion'/></td>
-		</tr>
-		<tr>
-          <td> </td>
-          <td> </td>
-		</tr>
-        
-	</tbody>	
-	</table>
+			<select id='transport'> <option value="Autocar">Autocar</option> <option value="Avion">Avion</option></select>
+		
+	</form>
+	<div id='ajaxDiv'> </div>	
+	<input type='button' onclick='ajaxFunction()' value='Cauta'/>  
 	
-	<div id='ajaxDiv'>In divul asta o sa apara interogarea de la BD pentru pagina de circuite cu avion si autocar </div>	
 	
 </div>
 
