@@ -1,14 +1,13 @@
 <html>
   <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/cssx" href="css.css"/>
-	
-   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
-<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+	<link rel="stylesheet" type="text/cssx" href="css.css"/>	
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
 	
 <script>
-$(document).ready(function ajaxFunction(){
+function ajaxFunction(){
  var ajaxRequest;  // Variabila Ajax  
 	
  try{
@@ -40,9 +39,9 @@ $(document).ready(function ajaxFunction(){
  var transport = document.getElementById('transport').value;
  
  var queryString = "?"+'transport'+"=" + transport; /*+"&wpm=" + wpm + "&sex=" + sex;*/
- ajaxRequest.open("GET", "http://192.168.0.114/interogator.php" + queryString, true);
+ ajaxRequest.open("GET", "http://192.168.1.134/interogator.php" + queryString, true);
  ajaxRequest.send(null); 
-}) 
+} 
 </script>
 
  
@@ -152,47 +151,6 @@ $(document).ready(function ajaxFunction(){
 	
 	
 </div>
-
-<!-- <div data-role="page" id="CircuiteAutocar" >
-	<div data-role="header">
-		<div data-role="navbar">
-			<ul>
-				<li><a href="#" data-icon="back" data-rel="back" data-transition="turn"   > Inapoi </a></li>
-				<li><a href="#Mainpage"data-icon="home" data-transition="turn"> Acasa </a></li>
-				<li><a href="#Contact"data-icon="phone" data-transition="turn">Contact</a></li>
-				<li><a href="#Sugestii"data-icon="info" data-transition="turn">Sugestii</a></li>
-				
-			</ul>
-		</div>
-	</div>
-	<div id="numefirma"> 
-	<p style="text-align:center"> Circuite autocar </p>
-	</div>
-	<div data-role="controlgroup" data-type="vertical">
-      
-      <a href="#" class="ui-btn">Benelux </a>
-      <a href="#" class="ui-btn">Elvetia </a>
-      <a href="#" class="ui-btn">Germania </a>
-    </div>
-	
-</div>	 -->
-
-<!-- <div data-role="page" id="CircuiteAvion" >
-	<div data-role="header">
-		<div data-role="navbar">
-			<ul>
-				<li><a href="#" data-icon="back" data-rel="back" data-transition="turn"   > Inapoi </a></li>
-				<li><a href="#Mainpage"data-icon="home" data-transition="turn"> Acasa </a></li>
-				<li><a href="#Contact"data-icon="phone" data-transition="turn">Contact</a></li>
-				<li><a href="#Sugestii"data-icon="info" data-transition="turn">Sugestii</a></li>
-				
-			</ul>
-		</div>
-	</div>
-	<div id="numefirma"> 
-	<p style="text-align:center"> Circuite avion </p>
-	</div>
-</div>	 -->
 
 <div data-role="page" id="Exotice" >
 	<div data-role="header">
@@ -305,7 +263,6 @@ $(document).ready(function ajaxFunction(){
 	<p style="text-align:center"> 	Statiuni Balneo - Montane </p>
 	</div>
 	
-	<script src="http://192.168.1.134/baleno.php"></script>
 	
 </div>
  
@@ -426,10 +383,10 @@ $(document).ready(function ajaxFunction(){
 	</div>
 	<div id="numefirma"> 
 	<p style="text-align:center"> Sugestii </p>
-	</div>
+</div>
 	
-	<div >
-	<form action="http://192.168.0.114/sumar_sugestii.php" method="post">
+	<div >	
+	<form action="http://192.168.1.134/sumar_sugestii.php" method="post">
 	<table data-role="table" class="ui-responsive" >
 	<thead><tr><th> </th><th> </th>	</thead>
 		<tbody>
