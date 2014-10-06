@@ -1,0 +1,614 @@
+<html>
+  <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>	
+	<link rel="stylesheet" type="text/cssx" href="css.css"/>
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
+    	<script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.2/jquery.mobile.min.js"></script>
+	
+	
+<script>
+function ajaxFunction(){
+ var ajaxRequest;  // Variabila Ajax  
+	
+ try{
+    
+   ajaxRequest = new XMLHttpRequest();
+ }catch (e){
+    
+   try{
+      ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
+   }catch (e) {
+      try{
+         ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
+      }catch (e){
+         // Daca ceva e in neregula cu vreun browser 
+		return false;
+      }
+   }
+ }
+ // Se creaza functia care va primi datele 
+ // trimise de server si va updata divul
+ // in care noi vrem sa facem afisarea datelor din DB
+ ajaxRequest.onreadystatechange = function(){
+   if(ajaxRequest.readyState == 4){
+      var ajaxDisplay = document.getElementById('ajaxDiv');
+      ajaxDisplay.innerHTML = ajaxRequest.responseText;
+   }
+ }
+ // Aici culegem datele dupa care facem selectia si le trimit catre scriptul php de pe server
+ var transport = document.getElementById('transport').value;
+ 
+ var queryString = "?"+'transport'+"=" + transport; /*+"&wpm=" + wpm + "&sex=" + sex;*/
+ ajaxRequest.open("GET", "http://192.168.0.114/interogator.php" + queryString, true);
+ ajaxRequest.send(null); 
+} 
+</script>
+
+ 
+ </head> 
+ <body>
+<div data-role="page" id="Mainpage" >
+<div data-role="header">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#" data-icon="back" data-rel="back" data-transition="turn"   > Inapoi </a></li>
+				<li><a href="#Mainpage"data-icon="home" data-transition="turn"> Acasa </a></li>
+				<li><a href="#Contact"data-icon="phone" data-transition="turn">Contact</a></li>
+				<li><a href="#Sugestii"data-icon="info" data-transition="turn">Sugestii</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="numefirma"> 
+    <p style="text-align:center"> NORD TRAVEL </p>  
+	</div> 
+	
+	
+	<div >
+	<table data-role="table" class="ui-responsive" >
+	<thead>
+        <tr>
+			
+			<th> </th>
+			<th> </th>      
+			<th> </th>		  
+        </tr>
+     </thead>
+	<tbody>
+        <tr>
+		  
+          <td><a href="#Paginacircuite" class="ui-btn  ui-corner-all ui-shadow " data-transition="flow"> Circuite </a></td>
+          <td> </td>
+          <td> </td>
+		  <td> </td>
+        </tr>
+		<tr>
+			
+			<td><a href="#OferteRomania" class="ui-btn  ui-corner-all ui-shadow " data-transition="flow">Romania </a></td>
+			<td> </td>
+			<td> </td>
+		</tr>
+        <tr>
+          
+          <td><a href="#Exotice" class="ui-btn  ui-corner-all ui-shadow " data-transition="flow">Exotice </a></td>
+          <td> </td>
+          <td> </td>
+        </tr>
+        <tr>
+			
+			<td><a href="#Croaziere" class="ui-btn  ui-corner-all ui-shadow " data-transition="flow">Croaziere </a></td>
+			<td> </td>
+			<td> </td> 
+        </tr>
+		<!-- <tr>	
+			<td><a href="#Ofertespeciale" class="ui-btn  ui-corner-all ui-shadow " data-transition="flow">Oferte speciale </a></td>
+			<td> </td>
+			<td> </td>
+		</tr>
+        <tr>
+			
+			<td><a href="#Vacantelemele" class="ui-btn  ui-corner-all ui-shadow " data-transition="flow">Vacantele mele </a></td>
+			<td> </td>
+			<td> </td>
+		</tr> -->
+        
+      </tbody>
+    </table>
+	
+	
+	
+	</div>
+	
+	<div ><p> </p> </div>
+
+    <div data-role="footer" id="myfooter">
+	<h6> Copyright &copy; 2014 | BEAR Design </h6>
+	</div>
+
+</div>
+
+<div data-role="page" id="Paginacircuite" >
+	<div data-role="navbar">
+			<ul>
+				<li><a href="#" data-icon="back" data-rel="back" data-transition="turn"   > Inapoi </a></li>
+				<li><a href="#Mainpage"data-icon="home" data-transition="turn"> Acasa </a></li>
+				<li><a href="#Contact"data-icon="phone" data-transition="turn">Contact</a></li>
+				<li><a href="#Sugestii"data-icon="info" data-transition="turn">Sugestii</a></li>
+				
+			</ul>
+		</div>
+	<div id="numefirma"> 
+    <p style="text-align:center"> CIRCUITE </p>  
+	</div>	
+	<form name='formCircuite'>
+	
+			<select id='transport'> <option value="Autocar">Autocar</option> <option value="Avion">Avion</option></select>
+		
+	</form>
+	<input type='button' onclick='ajaxFunction()' value='Cauta'/> 
+	<div id="ajaxDiv"> </div>	
+	 
+	
+	
+</div>
+
+<!-- <div data-role="page" id="CircuiteAutocar" >
+	<div data-role="header">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#" data-icon="back" data-rel="back" data-transition="turn"   > Inapoi </a></li>
+				<li><a href="#Mainpage"data-icon="home" data-transition="turn"> Acasa </a></li>
+				<li><a href="#Contact"data-icon="phone" data-transition="turn">Contact</a></li>
+				<li><a href="#Sugestii"data-icon="info" data-transition="turn">Sugestii</a></li>
+				
+			</ul>
+		</div>
+	</div>
+	<div id="numefirma"> 
+	<p style="text-align:center"> Circuite autocar </p>
+	</div>
+	<div data-role="controlgroup" data-type="vertical">
+      
+      <a href="#" class="ui-btn">Benelux </a>
+      <a href="#" class="ui-btn">Elvetia </a>
+      <a href="#" class="ui-btn">Germania </a>
+    </div>
+	
+</div>	 -->
+
+<!-- <div data-role="page" id="CircuiteAvion" >
+	<div data-role="header">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#" data-icon="back" data-rel="back" data-transition="turn"   > Inapoi </a></li>
+				<li><a href="#Mainpage"data-icon="home" data-transition="turn"> Acasa </a></li>
+				<li><a href="#Contact"data-icon="phone" data-transition="turn">Contact</a></li>
+				<li><a href="#Sugestii"data-icon="info" data-transition="turn">Sugestii</a></li>
+				
+			</ul>
+		</div>
+	</div>
+	<div id="numefirma"> 
+	<p style="text-align:center"> Circuite avion </p>
+	</div>
+</div>	 -->
+
+<div data-role="page" id="Exotice" >
+	<div data-role="header">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#" data-icon="back" data-rel="back" data-transition="turn"   > Inapoi </a></li>
+				<li><a href="#Mainpage"data-icon="home" data-transition="turn"> Acasa </a></li>
+				<li><a href="#Contact"data-icon="phone" data-transition="turn">Contact</a></li>
+				<li><a href="#Sugestii"data-icon="info" data-transition="turn">Sugestii</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div data-role="page" id="Croaziere" >
+	<div data-role="header">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#" data-icon="back" data-rel="back" data-transition="turn"   > Inapoi </a></li>
+				<li><a href="#Mainpage"data-icon="home" data-transition="turn"> Acasa </a></li>
+				<li><a href="#Contact"data-icon="phone" data-transition="turn">Contact</a></li>
+				<li><a href="#Sugestii"data-icon="info" data-transition="turn">Sugestii</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div data-role="page" id="Ofertespeciale" >
+	<div data-role="header">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#" data-icon="back" data-rel="back" data-transition="turn"   > Inapoi </a></li>
+				<li><a href="#Mainpage"data-icon="home" data-transition="turn"> Acasa </a></li>
+				<li><a href="#Contact"data-icon="phone" data-transition="turn">Contact</a></li>
+				<li><a href="#Sugestii"data-icon="info" data-transition="turn">Sugestii</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+<div data-role="page" id="OferteRomania" >
+	<div data-role="header">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#" data-icon="back" data-rel="back" data-transition="turn"   > Inapoi </a></li>
+				<li><a href="#Mainpage"data-icon="home" data-transition="turn"> Acasa </a></li>
+				<li><a href="#Contact"data-icon="phone" data-transition="turn">Contact</a></li>
+				<li><a href="#Sugestii"data-icon="info" data-transition="turn">Sugestii</a></li>
+				
+			</ul>
+		</div>
+	</div>
+	
+	<div id="numefirma"> 
+	<p style="text-align:center"> Romania </p>
+	</div>
+	<table data-role="table" class="ui-responsive" >
+	<thead>
+        <tr>
+			
+			<th> </th>
+			<th> </th>      
+			<th> </th>		  
+        </tr>
+     </thead>
+	<tbody>
+	
+        <tr>
+          <td><a href="#romaniaBaleno" class="ui-btn  ui-corner-all ui-shadow " data-transition="flow"> Statiuni Balneo-Montane  </a></td>
+          <td> </td>
+          <td> </td>
+		  <td> </td>
+        </tr>
+        <tr>
+		  <td><a href="#romaniaDelta" class="ui-btn  ui-corner-all ui-shadow " data-transition="flow"> Delta Dunarii </a></td>
+          <td> </td>
+          <td> </td>
+        </tr>
+         <tr>
+		  <td><a href="#romaniaMaramures" class="ui-btn  ui-corner-all ui-shadow " data-transition="flow"> Maramures  </a></td>
+          <td> </td>
+          <td> </td>
+        </tr>
+		<tr>
+		  <td><a href="#romaniaMareaNeagra" class="ui-btn  ui-corner-all ui-shadow " data-transition="flow"> Marea Neagra </a></td>
+          <td> </td>
+          <td> </td>
+        </tr>
+	</tbody>	
+	</table>
+</div> 
+
+<div data-role="page" id="romaniaBaleno" >
+	<div data-role="header">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#" data-icon="back" data-rel="back" data-transition="turn"   > Inapoi </a></li>
+				<li><a href="#Mainpage"data-icon="home" data-transition="turn"> Acasa </a></li>
+				<li><a href="#Contact"data-icon="phone" data-transition="turn">Contact</a></li>
+				<li><a href="#Sugestii"data-icon="info" data-transition="turn">Sugestii</a></li>
+				
+			</ul>
+		</div>
+	</div>
+	<div id="numefirma"> 
+	<p style="text-align:center"> 	Statiuni Balneo - Montane </p>
+	</div>
+	
+	<script src="http://192.168.1.134/baleno.php"></script>
+	
+</div>
+ 
+
+<div data-role="page" id="romaniaDelta" >
+	<div data-role="header">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#" data-icon="back" data-rel="back" data-transition="turn"   > Inapoi </a></li>
+				<li><a href="#Mainpage"data-icon="home" data-transition="turn"> Acasa </a></li>
+				<li><a href="#Contact"data-icon="phone" data-transition="turn">Contact</a></li>
+				<li><a href="#Sugestii"data-icon="info" data-transition="turn">Sugestii</a></li>
+				
+			</ul>
+		</div>
+	</div>
+	<div id="numefirma"> 
+	<p style="text-align:center"> Delta Dunarii </p>
+	</div>
+</div>
+ 
+
+<div data-role="page" id="romaniaMaramures" >
+	<div data-role="header">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#" data-icon="back" data-rel="back" data-transition="turn"   > Inapoi </a></li>
+				<li><a href="#Mainpage"data-icon="home" data-transition="turn"> Acasa </a></li>
+				<li><a href="#Contact"data-icon="phone" data-transition="turn">Contact</a></li>
+				<li><a href="#Sugestii"data-icon="info" data-transition="turn">Sugestii</a></li>
+				
+			</ul>
+		</div>
+	</div>
+	<div id="numefirma"> 
+	<p style="text-align:center"> Maramures  </p>
+	</div>
+</div>
+
+<div data-role="page" id="romaniaMareaNeagra" >
+	<div data-role="header">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#" data-icon="back" data-rel="back" data-transition="turn"   > Inapoi </a></li>
+				<li><a href="#Mainpage"data-icon="home" data-transition="turn"> Acasa </a></li>
+				<li><a href="#Contact"data-icon="phone" data-transition="turn">Contact</a></li>
+				<li><a href="#Sugestii"data-icon="info" data-transition="turn">Sugestii</a></li>
+				
+			</ul>
+		</div>
+	</div>
+	<div id="numefirma"> 
+	<p style="text-align:center"> Marea Neagra </p>
+	</div>
+</div>
+
+<div data-role="page" id="Vacantelemele" >
+	<div data-role="header">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#" data-icon="back" data-rel="back" data-transition="turn"   > Inapoi </a></li>
+				<li><a href="#Mainpage"data-icon="home" data-transition="turn"> Acasa </a></li>
+				<li><a href="#Contact"data-icon="phone" data-transition="turn">Contact</a></li>
+				<li><a href="#Sugestii"data-icon="info" data-transition="turn">Sugestii</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div data-role="page" id="Contact" >
+
+	<div data-role="header">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#" data-icon="back" data-rel="back" data-transition="turn"   > Inapoi </a></li>
+				<li><a href="#Mainpage"data-icon="home" data-transition="turn"> Acasa </a></li>
+				<li><a href="#Contact"data-icon="phone" data-transition="turn">Contact</a></li>
+				<li><a href="#Sugestii"data-icon="info" data-transition="turn">Sugestii</a></li>
+				
+			</ul>
+		</div>
+	</div>
+	
+	<div id="numefirma"> 
+	<p style="text-align:center"> Contact </p>
+	</div>
+	
+	<div data-role="collapsible">
+		<h1>Agentia CLUJ  </h1>
+			<p>Bulevardul Eroilor Nr. 20, Ap. 1A, Cluj Napoca, jud. Cluj </p>
+			<p>Tel/Fax: 0264.597.383</p>
+			<p>e-mail: cluj@nordtravel.ro</p>
+			<p>Brevet Turism 12665/27.08.2007</p>
+	</div>
+	
+	<div data-role="collapsible">
+		<h1>Agentia BORSA  </h1>
+			<p>Str. Decebal Nr. 2, Borsa, jud. Maramures </p>
+			<p>Tel/Fax: 0262/343.301</p>
+			<p>e-mail: office@nordtravel.ro</p>
+			<p>Brevet Turism 5698/08.11.2001</p>
+	</div>
+	
+</div>
+
+<div data-role="page" id="Sugestii" >
+	<div data-role="header">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#" data-icon="back" data-rel="back" data-transition="turn"   > Inapoi </a></li>
+				<li><a href="#Mainpage"data-icon="home" data-transition="turn"> Acasa </a></li>
+				<li><a href="#Contact"data-icon="phone" data-transition="turn">Contact</a></li>
+				<li><a href="#Sugestii"data-icon="info" data-transition="turn">Sugestii</a></li>
+				
+			</ul>
+		</div>
+	</div>
+	<div id="numefirma"> 
+	<p style="text-align:center"> Sugestii </p>
+	</div>
+	
+	<div >
+	<form action="http://192.168.0.114/sumar_sugestii.php" method="post">
+	<table data-role="table" class="ui-responsive" >
+	<thead><tr><th> </th><th> </th>	</thead>
+		<tbody>
+		<tr> <td> <p class="paragrafimbunatatit"> Numele  :</p> </td>   <td> <input type="text"name="Numele"></td></tr> 
+		<tr> <td> <p class="paragrafimbunatatit"> Prenumele :</p>  </td>  <td><input type="text" name="Prenumele"></td></tr>  
+		<tr> <td> <p class="paragrafimbunatatit"> Mail   :</p>  </td> <td> <input type="text" name="Mail" > </td></tr>  
+		<tr> <td> <p class="paragrafimbunatatit"> Data nasterii :</p> </td>    
+			<td><select name="Anul">
+			<option value=Alege>Alege anul </option>
+			<option value=1914>1914</option>
+			<option value=1915>1915</option>
+			<option value=1916>1916</option>
+			<option value=1917>1917</option>
+			<option value=1918>1918</option>
+			<option value=1919>1919</option>
+			<option value=1920>1920</option>
+			<option value=1921>1921</option>
+			<option value=1922>1922</option>
+			<option value=1923>1923</option>
+			<option value=1924>1924</option>
+			<option value=1925>1925</option>
+			<option value=1926>1926</option>
+			<option value=1927>1927</option>
+			<option value=1928>1928</option>
+			<option value=1929>1929</option>
+			<option value=1930>1930</option>
+			<option value=1931>1931</option>
+			<option value=1932>1932</option>
+			<option value=1933>1933</option>
+			<option value=1934>1934</option>
+			<option value=1935>1935</option>
+			<option value=1936>1936</option>
+			<option value=1937>1937</option>
+			<option value=1938>1938</option>
+			<option value=1939>1939</option>
+			<option value=1940>1940</option>
+			<option value=1941>1941</option>
+			<option value=1942>1942</option>
+			<option value=1943>1943</option>
+			<option value=1944>1944</option>
+			<option value=1945>1945</option>
+			<option value=1946>1946</option>
+			<option value=1947>1947</option>
+			<option value=1948>1948</option>
+			<option value=1949>1949</option>
+			<option value=1950>1950</option>
+			<option value=1951>1951</option>
+			<option value=1952>1952</option>
+			<option value=1953>1953</option>
+			<option value=1954>1954</option>
+			<option value=1955>1955</option>
+			<option value=1956>1956</option>
+			<option value=1957>1957</option>
+			<option value=1958>1958</option>
+			<option value=1959>1959</option>
+			<option value=1960>1960</option>
+			<option value=1961>1961</option>
+			<option value=1962>1962</option>
+			<option value=1963>1963</option>
+			<option value=1964>1964</option>
+			<option value=1965>1965</option>
+			<option value=1966>1966</option>
+			<option value=1967>1967</option>
+			<option value=1968>1968</option>
+			<option value=1969>1969</option>
+			<option value=1970>1970</option>
+			<option value=1971>1971</option>
+			<option value=1972>1972</option>
+			<option value=1973>1973</option>
+			<option value=1974>1974</option>
+			<option value=1975>1975</option>
+			<option value=1976>1976</option>
+			<option value=1977>1977</option>
+			<option value=1978>1978</option>
+			<option value=1979>1979</option>
+			<option value=1980>1980</option>
+			<option value=1981>1981</option>
+			<option value=1982>1982</option>
+			<option value=1983>1983</option>
+			<option value=1984>1984</option>
+			<option value=1985>1985</option>
+			<option value=1986>1986</option>
+			<option value=1987>1987</option>
+			<option value=1988>1988</option>
+			<option value=1989>1989</option>
+			<option value=1990>1990</option>
+			<option value=1991>1991</option>
+			<option value=1992>1992</option>
+			<option value=1993>1993</option>
+			<option value=1994>1994</option>
+			<option value=1995>1995</option>
+			<option value=1996>1996</option>
+			<option value=1997>1997</option>
+			<option value=1998>1998</option>
+			<option value=1999>1999</option>
+			<option value=2000>2000</option>
+			<option value=2001>2001</option>
+			<option value=2002>2002</option>
+			<option value=2003>2003</option>
+			<option value=2004>2004</option>
+			<option value=2005>2005</option>
+			<option value=2006>2006</option>
+			<option value=2007>2007</option>
+			<option value=2008>2008</option>
+			<option value=2009>2009</option>
+			<option value=2010>2010</option>
+			<option value=2011>2011</option>
+			<option value=2012>2012</option>
+			<option value=2013>2013</option>
+			<option value=2014>2014</option>
+
+
+			</select></td>   </tr>
+			<tr> <td></td> 
+			<td><select name="Luna"> 
+			<option>  <p class="paragrafimbunatatit"> Alege luna   </p> </option>
+			<option value=Ianuarie> Ianuarie </option> 
+			<option value=Februarie> Februarie </option> 
+			<option value=Martie> Martie </option> 
+			<option value=Aprilie> Aprilie </option> 
+			<option value=Mai > Mai </option> 
+			<option value=Iunie> Iunie </option> 
+			<option value=Iulie> Iulie </option> 
+			<option value=August> August </option> 
+			<option value=Septembrie> Septembrie </option> 
+			<option value=Octombrie> Octombrie </option> 
+			<option value=Noiembrie > Noiembrie </option> 
+			<option value=Decembrie> Decembrie </option> 
+			</select></td> </tr>
+			<tr> <td> </td>	
+			<td><select name="Ziua"> 
+			<option ><p class="paragrafimbunatatit"> Alege ziua </p> </option>
+			<option value=1>1</option>
+			<option value=2>2</option>
+			<option value=3>3</option>
+			<option value=4>4</option>
+			<option value=5>5</option>
+			<option value=6>6</option>
+			<option value=7>7</option>
+			<option value=8>8</option>
+			<option value=9>9</option>
+			<option value=10>10</option>
+			<option value=11>11</option>
+			<option value=12>12</option>
+			<option value=13>13</option>
+			<option value=14>14</option>
+			<option value=15>15</option>
+			<option value=16>16</option>
+			<option value=17>17</option>
+			<option value=18>18</option>
+			<option value=19>19</option>
+			<option value=20>20</option>
+			<option value=21>21</option>
+			<option value=22>22</option>
+			<option value=23>23</option>
+			<option value=24>24</option>
+			<option value=25>25</option>
+			<option value=26>26</option>
+			<option value=27>27</option>
+			<option value=28>28</option>
+			<option value=29>29</option>
+			<option value=30>30</option>
+			<option value=31>31</option>
+  
+			
+			</select></td> </tr>
+		 
+		<tr> <td> <p class="paragrafimbunatatit"> Sexul : </p>  </td> <td> <input type="radio" name="Sex" value="Male" checked="checked" > Male <input type="radio" name="Sex" value="Female">Female </td> </tr> 
+		<tr> <td> <p class="paragrafimbunatatit"> Sugestia : </p>  </td> <td> <input type="text" name="Sugestia" value="Sugestia"> </textarea> </td> </tr>
+		<tr> <td>  </td>  <td> <input type="submit" value="Submit"></td> </tr> 
+		<tr> <td>  </td>  <td> <input type="reset" value="Sterge"></td> </tr> 
+		
+		</tbody>  
+	</table>
+	</form>
+	</div>
+	
+</div>	
+
+
+</body>
+</html>
