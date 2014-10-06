@@ -8,7 +8,7 @@
 <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
 	
 <script>
-function ajaxFunction(){
+$(document).ready(function ajaxFunction(){
  var ajaxRequest;  // Variabila Ajax  
 	
  try{
@@ -42,7 +42,7 @@ function ajaxFunction(){
  var queryString = "?"+'transport'+"=" + transport; /*+"&wpm=" + wpm + "&sex=" + sex;*/
  ajaxRequest.open("GET", "http://192.168.0.114/interogator.php" + queryString, true);
  ajaxRequest.send(null); 
-} 
+}) 
 </script>
 
  
