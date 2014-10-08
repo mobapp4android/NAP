@@ -5,7 +5,7 @@
 	<script src="jquery-1.10.2.min.js"></script>
 	<script src="jquery.mobile-1.4.4.js"></script>
 	<link rel="stylesheet" type="text/cssx" href="css.css"/>	
-	
+	<script src="phonegap.js" type="text/javascript"></script>
 <script>
 function ajaxFunction(){
  var ajaxRequest;  // Variabila Ajax  
@@ -44,7 +44,7 @@ function ajaxFunction(){
 } 
 </script>
 
-<script type="text/javascript" charset="utf-8">
+<!-- <script type="text/javascript" charset="utf-8">
              
             // The watch id references the current `watchAcceleration`
             var watchID = null;
@@ -90,15 +90,15 @@ function ajaxFunction(){
             }
              
             function shaken(){
-                alert("Shaken");
+                alert("<a href="#Mainpage" data-transition="turn">");
             }
              
             // Error
             function onError() {
-                alert('onError!');
+                alert('Ceva nu a mers bine!');
             }
              
-            </script>
+            </script> -->
 
 
  
@@ -203,7 +203,7 @@ function ajaxFunction(){
 		
 	</form>
 	<input type='button' onclick='ajaxFunction()' value='Cauta'/> 
-	<div id="ajaxDiv"> </div>	
+	<div style="background:rgba(100,100,100,0.3)" id="ajaxDiv"> </div>	
 	 
 	
 	
